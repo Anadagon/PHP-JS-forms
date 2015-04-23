@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Assignment 1</title>
+<script type="text/javascript">
+    /*
+     * Declare 2 number arrays which respectively hold all entered even and odd entries
+     */
+    var evenNumberArray = [];
+    var oddNumberArray = [];
+    /*
+     * String declarations which will serve to summarize the number entries at the end of the program
+     * entries will be appended to the string
+     */
+    var displayEven = "Even Numbers: <br>";
+    var displayOdd = "Odd Numbers: <br>";
+    /*
+     * This function prompts the user to enter a number upon clicking the enter a number button
+     * it performs validation to stop zeros and non numbers from being entered. If a number passes
+     * validation it is added to the array as an integer and is appended to the display string
+     */
+    function entry()
+    {
+        var number = prompt("Please enter a number");
+        if (number != 0 && number % 2 == 0 && !isNaN(number))
+        {
+            evenNumberArray.push(parseInt(number));
+            displayEven += number + "<br>";
+            document.getElementById('even').innerHTML = displayEven;
+        }
+        else if (number != 0 && number % 2 != 0 && !isNaN(number))
+        {
+            oddNumberArray.push(parseInt(number));
+            displayOdd += number + "<br>";
+            document.getElementById('odd').innerHTML = displayOdd;
+        }
+        else
+        {
+            alert("You cannot enter non numbers or zeros!");
+        }
+    }
+    /*
+     * This function calculates the sum and average and appends these values to the display string
+     */
+    function calculate()
+    {
+        var evenSum = 0;
+        var oddSum = 0;
+        for (var i = 0; i < evenNumberArray.length; i++)
+        {
+            evenSum += evenNumberArray[i];
+        }
+        for (var i = 0; i < oddNumberArray.length; i++)
+        {
+            oddSum += oddNumberArray[i];
+        }
+        displayEven += "Sum: " + evenSum;
+        displayEven += " Mean: " + evenSum/evenNumberArray.length;
+        document.getElementById('even').innerHTML = displayEven;
+        displayOdd += "Sum: " + oddSum;
+        displayOdd += " Mean: " + oddSum/oddNumberArray.length;
+        document.getElementById('odd').innerHTML = displayOdd;
+    }
+</script>
+</head>
+<body style="background-color:grey;">
+    <div>
+        <input type="button" id="number input" value="enter a number" onclick="entry();" />
+        <input type="button" id="calculate" value="Calculate sums and means" onclick="calculate();" />
+    </div>
+    
+    <div id="even">
+        
+    </div>
+    <hr style="width: 280px;" align="left">
+    <div id="odd">
+        
+    </div>
+</body>
+</html>

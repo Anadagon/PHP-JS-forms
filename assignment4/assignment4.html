@@ -1,0 +1,104 @@
+<!--
+assignment4.html
+This document contains a form for assignment 4, it uses assignment4.js for its javascript library mainly for validation.
+It redirects to assignment4.php upon submission of the form.
+Matthew Van Boxtel, 2015.03.21: Created
+-->
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Assignment 4</title>
+    <link rel="stylesheet" type="text/css" href="assignment4.css">
+    <script type="text/javascript" src="jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="assignment4.js"></script>
+</head>
+<!--On load, the first field will be focused -->
+<body onload="focusFirstField()">
+    <h2>Order Form</h2>
+    <!--the form will be validated in javascript when submit button is clicked and the page will be redirected to assignment4.php-->
+    <form id="orderform" method="post" onsubmit="return validateForm()" action="assignment4.php">
+        <table>
+            <tr>
+                <td><p>* = required field</p></td>
+            </tr>
+            <tr>
+                <td><label>* First Name: </label></td>
+                <td><input type="text" name="fname" id="firstname"></td>
+            </tr>
+            <tr>
+                <td><label>* Last Name:</label></td>
+                <td><input type="text" name="lname" id="lastname"></td>
+            </tr>
+            <tr>
+                <td><label>Phone Number:</label></td>
+                <td><input type="tel" name="phone" id="phonenumber"</td>
+            </tr>
+            <tr>
+                <td><label>* Email:</label></td>
+                <td><input type="text" name="email" id="emailid"</td>
+            </tr>
+            <tr>
+                <td><label>* Are you a<br> Canadian Citizen?</label></td>
+                <td>
+                    <input type="radio" name="citizen" value="yes" checked>Yes
+                    <br>
+                    <input type="radio" name="citizen" value="no">No
+                </td>
+            </tr>
+            <tr>
+                <td><label>* Address:</label></td>
+                <td><input type="text" name="naddress" id="address"></td>
+            </tr>
+            <tr>
+                <td><label>* City:</label></td>
+                <td><input type="text" name="ncity" id="city"></td>
+            </tr>
+            <tr>
+                <td><label>* Province:</label></td>
+                <td>
+                    <select id="province" name="nprovince">
+                        <option>Select Province</option>
+                        <option value="1">Ontario</option>
+                        <option value="2">Quebec</option>
+                        <option value="3">British Columbia</option>
+                        <option value="4">Alberta</option>
+                        <option value="5">Saskatchewan</option>
+                        <option value="6">Manitoba</option>
+                        <option value="7">Nova Scotia</option>
+                        <option value="8">Prince Edward Island</option>
+                        <option value="9">New Brunswick</option>
+                        <option value="10">Newfoundland</option>
+                        <option value="11">Yukon</option>
+                        <option value="12">Northwest Territories</option>
+                        <option value="13">Nunavut</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>* Postal Code:</label></td>
+                <td><input type="text" id="postalcode" name="npostalcode"></td>
+            </tr>
+        <tr>
+            <td><label>* How many products<br> would you like to<br> order? </label></td>
+            <td><input type="text" id="numberofproducts" name="nnumberofproducts"></td>
+        </tr>
+        <tr>
+            <td><label>* What type of product<br> would you like?</label></td>
+            <td>
+                <select id="producttype" name="nproducttype">
+                    <option>Select Type</option>
+                    <option value="1">Type 1 ($2.50)</option>
+                    <option value="2">Type 2 ($15.00)</option>
+                    <option value="3">Type 3 ($30.00)</option>
+                    <option value="4">Type 4 ($65.00)</option>
+                    <option value="5">Type 5 ($100.00)</option>
+                </select>
+            </td>
+        </tr>
+        </table>
+    <input type="submit">
+    </form>
+</body>
+</html>

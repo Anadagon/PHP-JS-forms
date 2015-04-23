@@ -1,0 +1,79 @@
+<!--
+assign2.html
+This document contains a form for assignment 2, it uses assign2.js for its javascript library mainly for validation.
+Matthew Van Boxtel, 2015.02.07: Created
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="assign2.js"></script>
+</head>
+
+<!--On load, the first field will be focused -->
+<body onload="focusFirstField()">
+    <h2>Assignment 2 form:</h2>
+    <!--the form will be validated in javascript when submit button is clicked-->
+    <form name="userForm" method="post" onsubmit="return validateForm();" action="http://cswin2k5/echo/default.asp">
+        * = required field
+        <br>
+        <br>
+        <!--Most fields call javascript methods to trim white space and alter text when a user leaves the field-->
+        * First name:<br>
+        <input onblur="trimSpaces(this), capitalize(this);" type="text" name="fname" id="firstname">
+        <br>
+        <br>
+        * Last name:<br>
+        <input onblur="trimSpaces(this), capitalize(this);" type="text" name="lname" id="lastname">
+        <br>
+        <br>
+        * Email(can contain uppercase, lowercase, underscores, numbers, must end with @example.com example is any domain):<br>
+        <input onblur="trimSpaces(this);" type="text" name="email" id="emailField">
+        <br>
+        <br>
+        * Phone Number: <br>
+        <input onblur="trimSpaces(this);" type="text" name="phone" id="phoneNumber">
+        <br>
+        <br>
+        * City of Residence:<br>
+        <input onblur="trimSpaces(this), capitalize(this);" type="text" name="city" id="cityField"><br>
+        <br>
+        Postal Code:<br>
+        <input onblur="trimSpaces(this), changeCase(this);" type="text" name="pcode"><br>
+        <br>
+        Date of Birth:<br>
+        <input type="date" name="birth date">
+        <br>
+        <br>
+        Gender:<br>
+        <input type="radio" name="gender" id="male">Male
+        <input type="radio" name="gender" id="female">Female
+        <br>
+        <br>
+        Campus:
+        <select>
+            <option value="doon">Doon(Kitchener)</option>
+            <option value="cambridge">Cambridge</option>
+            <option value="guelph">Guelph</option>
+        </select>
+        <br>
+        <br>
+        Current classes:<br>
+        <input type="checkbox" name="classes" value="MATH1920"> MATH1920<br>
+        <input type="checkbox" name="classes" value="PROG1800"> PROG1800<br>
+        <input type="checkbox" name="classes" value="PROG1790"> PROG1790<br>
+        <input type="checkbox" name="classes" value="INFO2070"> INFO2070<br>
+        <input type="checkbox" name="classes" value="INFO1380"> INFO1380<br>
+        <br>
+        Student type:<br>
+        <input type="radio" name="stype" id="ftime">Full Time<br>
+        <input type="radio" name="stype" id="ptime">Part Time<br>
+        <br>
+        Emacs or Vim?:<br>
+        <input type="radio" name="text" id="emacs" checked>Emacs<br>
+        <input type="radio" name="text" id="Vim" disabled>Vim<br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
